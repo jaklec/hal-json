@@ -25,8 +25,8 @@ public class HalBuilderTest {
     @Test
     public void shouldBuildJsonWithLinks() throws Exception {
         URI uri = new URI("http://foo.bar");
-        String expected = "{'greeting':'Hello, World', '_links' : {'self': {'href': 'http://foo.bar'}, 'google': {'href': 'http://www.google.com'}}}";
-        String json = new HalBuilder(greeter).withLink("self", uri).withLink("google", "http://www.google.com").build();
+        String expected = "{'greeting':'Hello, World', '_links' : {'self': {'href': 'http://foo.bar'}, 'other': {'href': 'http://www.other.xyz'}}}";
+        String json = new HalBuilder(greeter).withLink("self", uri).withLink("other", "http://www.other.xyz").build();
         JSONAssert.assertEquals(expected, json, JSONCompareMode.STRICT);
     }
 
